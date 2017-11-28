@@ -1,3 +1,13 @@
+<?php
+date_default_timezone_set("PRC");
+include ('db.php');
+$sql="SELECT * FROM book_message ORDER BY id DESC";
+$result=$mysqli->query($sql);
+$rows=array();
+while($row=$result->fetch_array(MYSQLI_ASSOC)){
+    $rows[]=$row;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,21 +30,19 @@
         </form>
     </div>
     <div id="content">
-        <div class="con_class">
-            <p>name said:</p>
-            <p>message</p>
-            <p>Date:1222-22-22</p>
-        </div>
-        <div class="con_class">
-            <p>name said:</p>
-            <p>message</p>
-            <p>Date:1222-22-22</p>
-        </div>
-        <div class="con_class">
-            <p>name said:</p>
-            <p>message</p>
-            <p>Date:1222-22-22</p>
-        </div>
+        <?php
+          foreach($rows as $row){
+              $t=date("Y/m/d H:i:s",$row['time']);
+            ?>
+            <div class="con_class">
+            <p><?php echo "@".$row['user'] ?> said:</p>
+            <p><?php echo $row['message'] ?></p>
+            <p>Date:<?php echo $t ?></p>
+            </div>
+       <?php
+        }
+        ?>
+
     </div>
     <div id="foot">
         <p>welcome to my books,thanks!</p>
