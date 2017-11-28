@@ -19,7 +19,23 @@
             <input id="send" type="submit" value="sand" >
         </form>
     </div>
-    <div id="content"></div>
+    <div id="content">
+        <div class="con_class">
+            <p>name said:</p>
+            <p>message</p>
+            <p>Date:1222-22-22</p>
+        </div>
+        <div class="con_class">
+            <p>name said:</p>
+            <p>message</p>
+            <p>Date:1222-22-22</p>
+        </div>
+        <div class="con_class">
+            <p>name said:</p>
+            <p>message</p>
+            <p>Date:1222-22-22</p>
+        </div>
+    </div>
     <div id="foot">
         <p>welcome to my books,thanks!</p>
         <p>by @wenyiwen</p>
