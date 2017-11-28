@@ -1,18 +1,24 @@
 <?php
 date_default_timezone_set("PRC");
-include ('db.php');
-$sql="SELECT * FROM book_message ORDER BY id DESC";
-$result=$mysqli->query($sql);
-$rows=array();
-while($row=$result->fetch_array(MYSQLI_ASSOC)){
-    $rows[]=$row;
+//include ('db.php');
+//$sql="SELECT * FROM book_message ORDER BY id DESC";
+//$result=$mysqli->query($sql);
+//$rows=array();
+//while($row=$result->fetch_array(MYSQLI_ASSOC)){
+//    $rows[]=$row;
+//}
+include ('page.php');
+$sql = "select * from book_message LIMIT $offset,$pageSize";
+$result = $mysqli->query($sql);
+while($arr = mysqli_fetch_array($result)){
+    $rows[]=$arr;
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> welcome my Book</title>
+    <title> welcome my books</title>
     <link rel="stylesheet" href="mystyle.css" type="text/css" >
 </head>
 <body>
@@ -42,7 +48,12 @@ while($row=$result->fetch_array(MYSQLI_ASSOC)){
        <?php
         }
         ?>
-
+        <?php
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">首页</a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\">上一页</a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\">尾页</a>";
+        ?>
     </div>
     <div id="foot">
         <p>welcome to my books,thanks!</p>

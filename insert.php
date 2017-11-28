@@ -15,6 +15,7 @@ if($name=="" or $mess==""){
 }else{
     $sql="INSERT INTO book_message(user,message,time) VALUE ('$name','$mess','$time')";
     $mysqli->query($sql);
+    $mysqli->close();
     header('Location:index.php');
 }
 
