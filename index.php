@@ -8,7 +8,7 @@ date_default_timezone_set("PRC");
 //    $rows[]=$row;
 //}
 include ('page.php');
-$sql = "select * from book_message LIMIT $offset,$pageSize";
+$sql = "select * from book_message order by id desc LIMIT $offset,$pageSize";
 $result = $mysqli->query($sql);
 while($arr = mysqli_fetch_array($result)){
     $rows[]=$arr;
@@ -49,10 +49,13 @@ while($arr = mysqli_fetch_array($result)){
         }
         ?>
         <?php
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">首页</a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\">上一页</a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\">尾页</a>";
+        echo "<div id='type'>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">Home </a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 《—Last Page</a>";
+        echo "|";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">Next Page—》</a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> End </a>";
+        echo "</div>";
         ?>
     </div>
     <div id="foot">
