@@ -1,0 +1,26 @@
+#all{
+    margin:200px 0 0 0;
+}
+#admin_login{
+    margin: 0 auto;
+    border: 1px solid;
+    width: 500px;
+    height: 220px;
+}
+#form{
+    margin: 50px 50px;
+}
+#form label{
+    margin: 5px 0 10px 120px;
+}
+#name{
+    margin: 5px 0 5px 120px;
+}
+#pass{
+    margin: 5px 0 10px 120px;
+}
+#login_bt{
+    border: 1px solid;
+    background: white;
+    margin: 5px 0 10px 220px;
+}

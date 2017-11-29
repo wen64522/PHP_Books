@@ -1,0 +1,19 @@
+#all{
+    width: 1400px;
+}
+#header{
+    background: rgba(0, 0, 0, 0.47);
+    height:60px;
+}
+#left{
+    float: left;
+    width: 200px;
+    height: 699px;
+    background: rgba(0, 0, 0, 0.19);
+}
+#content{
+    float: left;
+    width: 1200px;
+    height: 699px;
+    background: darkgray;
+}
