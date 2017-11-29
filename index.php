@@ -7,7 +7,7 @@ date_default_timezone_set("PRC");
 //while($row=$result->fetch_array(MYSQLI_ASSOC)){
 //    $rows[]=$row;
 //}
-include ('page.php');
+include('books/page.php');
 $sql = "select * from book_message order by id desc LIMIT $offset,$pageSize";
 $result = $mysqli->query($sql);
 while($arr = mysqli_fetch_array($result)){
@@ -19,7 +19,9 @@ while($arr = mysqli_fetch_array($result)){
 <head>
     <meta charset="UTF-8">
     <title> welcome my books</title>
-    <link rel="stylesheet" href="mystyle.css" type="text/css" >
+    <link rel="stylesheet" href="public/css/mystyle.css" type="text/css" >
+    <script type="text/javascript" src="public/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="public/js/index.js"></script>
 </head>
 <body>
 <div id="main">
@@ -35,10 +37,12 @@ while($arr = mysqli_fetch_array($result)){
                 <li><a href="#">Date</a></li>
             </ul>
         </div>
-        <button id="login" type="button" >Admin Login</button>
+        <div id="login">
+            <a href="books/login.php" >Admin Login</a>
+        </div>
     </div>
     <div id="message">
-        <form id="form" method="post" action="insert.php">
+        <form id="form" method="post" action="books/insert.php">
             <label for="name">Your name:</label> <br>
             <input id="name" name="user" type="text" ><br>
             <label for="mess">You must want to say something,Please input your message,thanks!!! </label><br>

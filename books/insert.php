@@ -6,7 +6,7 @@
  * Date: 2017/11/28
  * Time: 11:36
  */
-include ('db.php');
+include('db.php');
 $name=$_POST['user'];
 $mess=$_POST['message'];
 $time=time();
