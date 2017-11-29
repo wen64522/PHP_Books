@@ -24,7 +24,18 @@ while($arr = mysqli_fetch_array($result)){
 <body>
 <div id="main">
     <div id="header">
-        <h1>Text</h1>
+        <div id="logo"><div id="logo_1">Books</div></div>
+        <div id="nav">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Life</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Say</a></li>
+                <li><a href="#">Date</a></li>
+            </ul>
+        </div>
+        <button id="login" type="button" >Admin Login</button>
     </div>
     <div id="message">
         <form id="form" method="post" action="insert.php">
