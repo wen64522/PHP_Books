@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: wen
@@ -16,6 +17,7 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "login") {
         $result=$mysqli->query($sql);
         $num=mysqli_num_rows($result);
         if($num){
+            $_SESSION["user"]=$_POST['admin'];
             header('location:admin.php');
         }else{
             echo "user or password error!!!"."<br><a href='../books/login.php'>back login</a>";

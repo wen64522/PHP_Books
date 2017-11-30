@@ -1,8 +1,9 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: wen
  * Date: 2017/11/30
  * Time: 11:50
  */
-echo "welcome to my admin system!!!";
+echo "Hey!!!@"."<h style=\"color: #ff0f01\">".$_SESSION['user']."</h>".",welcome to my Books system!!!";
