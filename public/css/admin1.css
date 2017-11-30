@@ -2,18 +2,43 @@
     width: 1400px;
 }
 #header{
-    background: rgba(0, 0, 0, 0.47);
-    height:60px;
+    border: 1px solid;
+    height: 60px;
+    margin: 0 0 10px 0;
+}
+#logo{
+    width: 130px;
+    height: 30px;
+    border: 1px solid;
+    margin: 15px 35px;
+}
+#logo p{
+    margin: 5px 5px;
 }
 #left{
     float: left;
-    width: 200px;
-    height: 699px;
-    background: rgba(0, 0, 0, 0.19);
+    width: 180px;
+    height: 600px;
+    border: 1px solid;
+}
+#left ul li{
+    border: 1px solid;
+    padding: 10px 10px;
+    list-style-type:none;
+    margin: 45px 15px 45px 0;
+}
+#left ul li a{
+    margin: 5px 5px 5px 25px;
+    text-decoration: none;
 }
 #content{
+    margin: 0 0 0 15px;
     float: left;
     width: 1200px;
-    height: 699px;
-    background: darkgray;
+    height: 600px;
+    border: 1px solid;
 }
+#left ul li a:link {color: black;}
+#left ul li a:visited {color:black;}
+#left ul li a:hover {color: #ff0f01;}
+#left ul li a:active {color:#0000FF;}

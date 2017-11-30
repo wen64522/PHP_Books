@@ -18,7 +18,7 @@ while($arr = mysqli_fetch_array($result)){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> welcome my books</title>
+    <title> welcome to my books</title>
     <link rel="stylesheet" href="public/css/mystyle.css" type="text/css" >
     <script type="text/javascript" src="public/js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="public/js/index.js"></script>
@@ -33,8 +33,8 @@ while($arr = mysqli_fetch_array($result)){
                 <li><a href="#">News</a></li>
                 <li><a href="#">Life</a></li>
                 <li><a href="#">Books</a></li>
-                <li><a href="#">Say</a></li>
-                <li><a href="#">Date</a></li>
+                <li><a href="#">photo</a></li>
+                <li><a href="#">message</a></li>
             </ul>
         </div>
         <div id="login">
