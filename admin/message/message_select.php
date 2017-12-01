@@ -6,7 +6,7 @@
  * Time: 10:23
  */
 date_default_timezone_set("PRC");
-include('../../books/db.php');
+include('../../books/common/db.php');
 $val=$_GET['val'];
 $sql="select * from book_message WHERE user LIKE '%$val%'";
 $result=$mysqli->query($sql);

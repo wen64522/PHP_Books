@@ -6,7 +6,7 @@ session_start();
  * Date: 2017/11/29
  * Time: 14:41
  */
-include('../books/db.php');
+include('../books/common/db.php');
 if(isset($_POST["submit"]) && $_POST["submit"] == "login") {
     $user=$_POST['admin'];
     $pass=$_POST['password'];
