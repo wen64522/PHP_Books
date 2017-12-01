@@ -6,7 +6,7 @@
  * Date: 2017/11/28
  * Time: 11:36
  */
-include('db.php');
+include('../common/db.php');
 $name=$_POST['user'];
 $mess=$_POST['message'];
 $time=time();
@@ -16,7 +16,7 @@ if($name=="" or $mess==""){
     $sql="INSERT INTO book_message(user,message,time) VALUE ('$name','$mess','$time')";
     $mysqli->query($sql);
     $mysqli->close();
-    header('Location:../index.php');
+    header('Location:book_message.php');
 }
 
 

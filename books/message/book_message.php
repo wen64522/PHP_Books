@@ -11,7 +11,7 @@ while($arr = mysqli_fetch_array($result)){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../public/css/book_message.css" type="text/css" >
+    <link rel="stylesheet" href="../../public/css/book_message.css" type="text/css" >
 </head>
 <body>
 <div id="main">

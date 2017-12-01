@@ -5,7 +5,7 @@
  * Date: 2017/11/28
  * Time: 17:03
  */
-include('db.php');
+include('../common/db.php');
 $pageSize = 4; //每页显示数据条数
 
 $result = $mysqli->query("select * from book_message");
