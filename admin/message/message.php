@@ -14,7 +14,11 @@ while($arr = mysqli_fetch_array($result)){
 </head>
 <body>
 <div>
-
+    <form action="message_select.php" method="get">
+        <input type="text" name="val"  placeholder="input search name">
+        <input type="submit" value="search">
+    </form>
+    <div>
     <table border="1" style=" border-collapse:collapse; width: 800px ;height: 500px">
         <tr>
             <th>id</th>
@@ -47,6 +51,7 @@ while($arr = mysqli_fetch_array($result)){
     echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> End </a>";
     echo "</div>";
     ?>
+    </div>
 </div>
 </body>
 </html>
