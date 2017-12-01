@@ -31,6 +31,10 @@
     margin: 5px 5px 5px 25px;
     text-decoration: none;
 }
+#left ul li a:hover {
+    background-color: #70d3ff;
+    color: white;
+}
 #content{
     margin: 0 0 0 15px;
     float: left;
@@ -38,6 +42,16 @@
     height: 600px;
     border: 1px solid;
 }
+#type{
+    margin: 0 15px 25px 15px;
+}
+#type a {
+    text-decoration: none;
+    margin: 10px 10px;
+}
+#type a:visited {color:black;}	/* 已被访问的链接 */
+#type a:hover {color: #ff0f01;}	/* 鼠标指针移动到链接上 */
+#type a:active {color:#0000FF;}
 #left ul li a:link {color: black;}
 #left ul li a:visited {color:black;}
 #left ul li a:hover {color: #ff0f01;}

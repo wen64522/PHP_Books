@@ -1,12 +1,5 @@
 <?php
 date_default_timezone_set("PRC");
-//include ('db.php');
-//$sql="SELECT * FROM book_message ORDER BY id DESC";
-//$result=$mysqli->query($sql);
-//$rows=array();
-//while($row=$result->fetch_array(MYSQLI_ASSOC)){
-//    $rows[]=$row;
-//}
 include('books/page.php');
 $sql = "select * from book_message order by id desc LIMIT $offset,$pageSize";
 $result = $mysqli->query($sql);
