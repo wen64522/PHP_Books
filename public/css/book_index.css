@@ -1,0 +1,16 @@
+#main{
+    width: 890px;
+}
+#left{
+    border: 1px solid;
+    width: 620px;
+    height: 1060px;
+    float:left;
+}
+.right{
+    border: 1px solid;
+    width: 260px;
+    height: 350px;
+    float: right;
+    margin: 0 0 6px 0;
+}
