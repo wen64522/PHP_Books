@@ -1,0 +1,12 @@
+#main{
+    width: 890px;
+    height: 1050px;
+    border: 1px solid;
+}
+.img{
+    float: left;
+    width: 210px;
+    height: 300px;
+    border: 1px solid;
+    margin: 20px 40px;
+}

@@ -8,10 +8,9 @@
 <body>
 <div id="main">
     <div id="header">
-        <div id="logo"><div id="logo_1">Books</div></div>
+        <div id="logo"><div id="logo_1"><a href="index.php">Books</a></div></div>
         <div id="nav">
             <ul>
-                <li><a href="index.php">Home</a></li>
                 <li><a href="books/news/book_news.php" target="index">News</a></li>
                 <li><a href="books/life/book_life.php" target="index">Life</a></li>
                 <li><a href="books/book/book_book.php" target="index">Book</a></li>

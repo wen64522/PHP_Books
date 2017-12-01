@@ -1,7 +1,38 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: wen
- * Date: 2017/12/1
- * Time: 16:24
- */
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../../public/css/book_photo.css" rel="stylesheet">
+</head>
+<body>
+<div id="main">
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+    <div class="img">
+        <img src="jj.jpg">
+    </div>
+</div>
+</body>
+</html>
