@@ -8,14 +8,14 @@
 <div id="main">
     <a href="news.php">news</a>/
     <a href="addnews.php">add_news</a>/
-    <a href="addnews.php">add_type</a>
-    <br><br>
+    <a href="addtype.php">add_type</a>
+    <hr>
 </div>
 <div id="content">
     <h1>添加类别</h1>
-    <form action="#" method="post">
-        <input type="text">
-        <input type="submit" value="添加">
+    <form action="add_type.php" method="post">
+        <input type="text" name="newstype">
+        <input type="submit" value="添加" name="submit">
     </form>
 </div>
 </body>
