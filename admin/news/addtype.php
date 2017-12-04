@@ -11,11 +11,11 @@
     <a href="addnews.php">add_type</a>
     <br><br>
 </div>
-<div>
-    <h1>新闻管理</h1>
+<div id="content">
+    <h1>添加类别</h1>
     <form action="#" method="post">
         <input type="text">
-        <input type="submit" value="search">
+        <input type="submit" value="添加">
     </form>
 </div>
 </body>

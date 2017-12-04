@@ -17,8 +17,6 @@
         <ul>
             <li><a href="welcome.php" target="onclick">Home</a></li>
             <li><a href="news/news.php" target="onclick">News</a></li>
-            <li><a href="life/life.php" target="onclick">Life</a></li>
-            <li><a href="books/books.php" target="onclick">Books</a></li>
             <li><a href="photo/photo.php" target="onclick">photo</a></li>
             <li><a href="message/message.php" target="onclick">message</a></li>
         </ul>

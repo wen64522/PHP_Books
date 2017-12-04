@@ -1,0 +1,7 @@
+#main a{
+    text-decoration: none;
+}
+#main a:link {color: black;}
+#main  a:visited {color:black;}
+#main  a:hover {color: #ff0f01;}
+#main  a:active {color:#0000FF;}
