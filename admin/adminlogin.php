@@ -13,7 +13,7 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "login") {
     if($user=="" or $pass=="" ){
         echo "error!!!user or password must"."<br><a href='../books/login.php'>back login</a>";
     }else{
-        $sql="select admin,password from book_admin where admin='$_POST[admin]' and password='$_POST[password]'";
+        $sql="select admin,password from book_admin where admin='$user' and password='$pass'";
         $result=$mysqli->query($sql);
         $num=mysqli_num_rows($result);
         if($num){

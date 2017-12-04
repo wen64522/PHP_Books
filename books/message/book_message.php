@@ -3,9 +3,7 @@ date_default_timezone_set("PRC");
 include('page.php');
 $sql = "select * from book_message order by id desc LIMIT $offset,$pageSize";
 $result = $mysqli->query($sql);
-while($arr = mysqli_fetch_array($result)){
-    $rows[]=$arr;
-}
+$num=mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,14 +24,29 @@ while($arr = mysqli_fetch_array($result)){
     </div>
     <div id="content">
         <?php
-        foreach($rows as $row){
-            $t=date("Y/m/d H:i:s",$row['time']);
-            ?>
+        if($num==0){
+        ?>
             <div class="con_class">
-                <p><?php echo "@".$row['user'] ?> said:</p>
-                <p><?php echo $row['message'] ?></p>
-                <p>Date:<?php echo $t ?></p>
+                <p>sorry, no message,please input your new message.thanks!!!</p>
             </div>
+        <?php
+        }else {
+            ?>
+            <?php
+            while($arr = mysqli_fetch_array($result)){
+                $rows[]=$arr;
+            }
+            foreach ($rows as $row) {
+                $t = date("Y/m/d H:i:s", $row['time']);
+                ?>
+                <div class="con_class">
+                    <p><?php echo "@" . $row['user'] ?> said:</p>
+                    <p><?php echo $row['message'] ?></p>
+                    <p>Date:<?php echo $t ?></p>
+                </div>
+                <?php
+            }
+            ?>
             <?php
         }
         ?>

@@ -1,11 +1,9 @@
 <?php
 date_default_timezone_set("PRC");
 include ('message_page.php');
-$sql = "select * from book_message order by id desc LIMIT $offset,$pageSize";
+$sql = "select * from book_message order by id desc limit $offset,$pageSize";
 $result = $mysqli->query($sql);
-while($arr = mysqli_fetch_array($result)){
-    $rows[]=$arr;
-}
+$num=mysqli_num_rows($result);
 ?>
 <html>
 <head>
@@ -28,17 +26,30 @@ while($arr = mysqli_fetch_array($result)){
             <th>operation</th>
         </tr>
         <?php
-        foreach($rows as $row){
-            $t=date("Y/m/d H:i:s",$row['time']);
-        ?>
-        <tr>
-            <td><?php echo $row['id']?></td>
-            <td><?php echo $row['user']?></td>
-            <td><?php echo $row['message']?></td>
-            <td><?php echo $t ?></td>
-            <td><a href="message_delete.php?id=<?php echo $row['id']?>">Delete</a></td>
-        </tr>
-        <?php
+        if($num==0){
+            ?>
+                <p>sorry, no message.</p>
+            <?php
+        }else {
+            ?>
+            <?php
+            while ($arr = mysqli_fetch_array($result)) {
+                $rows[] = $arr;
+            }
+            foreach ($rows as $row) {
+                $t = date("Y/m/d H:i:s", $row['time']);
+                ?>
+                <tr>
+                    <td><?php echo $row['id'] ?></td>
+                    <td><?php echo $row['user'] ?></td>
+                    <td><?php echo $row['message'] ?></td>
+                    <td><?php echo $t ?></td>
+                    <td><a href="message_delete.php?id=<?php echo $row['id'] ?>">Delete</a></td>
+                </tr>
+                <?php
+            }
+            ?>
+            <?php
         }
         ?>
     </table>
