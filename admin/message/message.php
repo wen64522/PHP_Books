@@ -12,6 +12,7 @@ $num=mysqli_num_rows($result);
 </head>
 <body>
 <div>
+    <h1>留言管理</h1>
     <form action="message_select.php" method="get">
         <input type="text" name="val"  placeholder="搜索留言人">
         <input type="submit" value="search">

@@ -14,9 +14,9 @@ $num=mysqli_num_rows($result);
 </head>
 <body>
 <div id="main">
-    <a href="news.php">news</a>/
-    <a href="addnews.php">add_news</a>/
-    <a href="addtype.php">add_type</a>
+    <a href="news.php">新闻管理</a>/
+    <a href="addnews.php">新闻添加</a>/
+    <a href="addtype.php">新闻类别</a>
     <hr>
 </div>
 <div>

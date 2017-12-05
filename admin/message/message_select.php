@@ -21,7 +21,13 @@ if(mysqli_num_rows($result)){
     while($arr=mysqli_fetch_array($result)){
         $rows[]=$arr;
     }
-?><a href='message.php'>back message</a>
+?>
+    <h1>留言搜索结果</h1>
+    <form action="message_select.php" method="get">
+        <input type="text" name="val"  placeholder="搜索留言人">
+        <input type="submit" value="search">
+    </form>
+    <a href='message.php'>返回留言管理</a>
 <table border="1" style=" border-collapse:collapse; width: 800px ;height: 500px">
     <tr>
         <th>id</th>
@@ -46,8 +52,12 @@ if(mysqli_num_rows($result)){
     ?>
 </table>
 <?php }else{
-    echo "no data ";
-    echo "<p><a href='message.php'>back message</a></p>";
+    echo "无此数据 ";
+    echo "<h1>留言搜索结果</h1>
+    <form action=\"message_select.php\" method=\"get\">
+        <input type=\"text\" name=\"val\"  placeholder=\"搜索留言人\">
+        <input type=\"submit\" value=\"search\">
+    </form><p><a href='message.php'>返回留言管理</a></p>";
 }
 ?>
 </body>

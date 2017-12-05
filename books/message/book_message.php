@@ -52,11 +52,11 @@ $num=mysqli_num_rows($result);
         ?>
         <?php
         echo "<div id='type'>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">Home </a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 《—Last Page</a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">最前 </a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 上一页</a>";
         echo "|";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">Next Page—》</a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> End </a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
+        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> 最后 </a>";
         echo "</div>";
         ?>
     </div>

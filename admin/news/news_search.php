@@ -15,9 +15,9 @@ $num=mysqli_num_rows($result);
 </head>
 <body>
 <div id="main">
-    <a href="news.php">news</a>/
-    <a href="addnews.php">add_news</a>/
-    <a href="addtype.php">add_type</a>
+    <a href="news.php">新闻管理</a>/
+    <a href="addnews.php">新闻添加</a>/
+    <a href="addtype.php">新闻类别</a>
     <hr>
 </div>
 <div>
@@ -75,15 +75,6 @@ $num=mysqli_num_rows($result);
         }
         ?>
     </table>
-    <?php
-    echo "<div id='type'>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">最前 </a>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 上一页</a>";
-    echo "|";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> 最后 </a>";
-    echo "</div>";
-    ?>
 </div>
 </body>
 </html>
