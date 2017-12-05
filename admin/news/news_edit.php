@@ -1,11 +1,8 @@
 <?php
 include ('../../books/common/db.php');
-$sql="select * from book_type ORDER by id desc";
+$id=$_GET['id'];
+$sql="select * from book_news where id='$id'";
 $result=$mysqli->query($sql);
-while($row=mysqli_fetch_array($result)){
-    $rows[]=$row;
-}
-$mysqli->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,38 +17,40 @@ $mysqli->close();
 </head>
 <body>
 <div id="main">
-        <a href="news.php">news</a>/
-        <a href="addnews.php">add_news</a>/
-        <a href="addtype.php">add_type</a>
+    <a href="news.php">news</a>/
+    <a href="addnews.php">add_news</a>/
+    <a href="addtype.php">add_type</a>
     <hr>
-    <h1>添加新闻</h1>
-    <form method="post" action="add_succ.php" >
+    <h1>更改新闻</h1>
+    <?php
+    while($row=mysqli_fetch_array($result)){
+    ?>
+    <form method="post" action="news_update.php?id=<?php echo $row['id']?>" >
         <label for="title">标题：</label>
-        <input type="text" id="title" name="tle"><br><br>
+        <input type="text" id="title" name="tle" value="<?php echo $row['tle']?>"><br><br>
         <label for="type">类别：</label>
         <select id="type" name="value">
-            <?php
-            foreach($rows as $row) {
-                ?>
                 <option value="<?php  echo $row['newstype']?>"><?php echo $row['newstype']?></option>
-                <?php
-            }
-            ?>
         </select><br><br>
         <label for="file_upload">封面：</label>
-        <input id="file_upload" name="file_upload" type="file" >
+        <input id="file_upload" name="file_upload" type="file" value="<?php echo $row['img']?>">
         <div  id="imgs"></div>
-        <input name="file_upload" type="hidden"   id="img_post" >
+        <input name="file_upload" type="hidden"   id="img_post" value="<?php echo $row['img']?>">
         <label for="text">内容：</label>
-        <textarea style="width: 800px;height: 400px" name="nav" id="text"></textarea><br>
+        <textarea style="width: 800px;height: 400px" name="nav" id="text">
+            <?php echo $row['nav']?>
+        </textarea><br>
         <input type="submit" name="submit" value="提交">
     </form>
+    <?php
+    }
+    ?>
 </div>
 <script type="text/javascript">
     //        var editor = new UE.ui.Editor();
     //1.2.4以后可以使用一下代码实例化编辑器
     UE.getEditor('text')
-//上传图片
+    //上传图片
     <?php $timestamp = time();?>
     $(function() {
         $('#file_upload').uploadify({

@@ -1,7 +1,8 @@
 <?php
 date_default_timezone_set("PRC");
 include ('news_page.php');
-$sql="select * from book_news order by id desc limit $offset,$pageSize";
+$val=$_GET['val'];
+$sql="select * from book_news WHERE tle LIKE '%$val%'";
 $result=$mysqli->query($sql);
 $num=mysqli_num_rows($result);
 ?>
@@ -20,7 +21,7 @@ $num=mysqli_num_rows($result);
     <hr>
 </div>
 <div>
-    <h1>新闻管理</h1>
+    <h1>新闻搜索结果</h1>
     <form action="news_search.php" method="get">
         <input type="text" name="val" placeholder="搜索新闻标题">
         <input type="submit" value="search">
@@ -55,24 +56,24 @@ $num=mysqli_num_rows($result);
                     $up=date('Y/m/d H:i:s',$row['uptime']);
                 }
                 ?>
-            <tr>
-                <td><?php echo $row['id']?></td>
-                <td><img style="width: 100px;height: 60px" src="../../public/uploads/<?php echo $row['img']?>"></td>
-                <td><?php echo $row['tle']?></td>
-                <td><?php echo $row['newstype']?></td>
-                <td><?php echo $t?></td>
-                <td><?php echo $up?></td>
-                <td><?php echo $row['user']?></td>
-                <td>
-                    <a href="news_delete.php?id=<?php echo $row['id']?>">Delete</a>
-                    <a href="news_edit.php?id=<?php echo $row['id']?>">Edit</a>
-                </td>
-            </tr>
-           <?php
+                <tr>
+                    <td><?php echo $row['id']?></td>
+                    <td><img style="width: 100px;height: 60px" src="../../public/uploads/<?php echo $row['img']?>"></td>
+                    <td><?php echo $row['tle']?></td>
+                    <td><?php echo $row['newstype']?></td>
+                    <td><?php echo $t?></td>
+                    <td><?php echo $up?></td>
+                    <td><?php echo $row['user']?></td>
+                    <td>
+                        <a href="news_delete.php?id=<?php echo $row['id']?>">Delete</a>
+                        <a href="news_edit.php?id=<?php echo $row['id']?>">Edit</a>
+                    </td>
+                </tr>
+                <?php
             } ?>
-           <?php
+            <?php
         }
-          ?>
+        ?>
     </table>
     <?php
     echo "<div id='type'>";
