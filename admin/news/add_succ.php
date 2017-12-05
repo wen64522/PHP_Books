@@ -13,19 +13,24 @@ if(isset($_POST['submit'])){
     $type=$_POST['value'];
     $t=time();
     $user=$_SESSION['user'];
-    $sql="insert into book_news (tle,nav,user,time,newstype,img) value ('$title,'$content','$user','$time','$type')";
-    $result=$mysqli->query($sql);
-    $num=mysqli_num_rows($result);
-    if($num==0){
-        echo "no suc<br>";
-        echo "<a href='addnews.php'>back add_type</a>";
+    $imgurl=$_POST['file_upload'];
+    if($title==""or $content=="" or $imgurl==""){
+        echo "you must input your news message!!!<br>";
+        echo "<a href='addnews.php'>back add_news</a>";
     }else{
-        echo "yes<br>";
-        echo "<a href='addnews.php'>back add_type</a>";
+        $sql="INSERT INTO book_news(tle,nav,user,time,newstype,img) VALUE ('$title','$content','$user','$t','$type','$imgurl')";
+        $result=$mysqli->query($sql);
+        if(!$result){
+            echo "添加错误！！！<br>";
+            echo "<a href='addnews.php'>back add_news</a>";
+        }else{
+            echo "添加成功！！！<br>";
+            echo "<a href='addnews.php'>back add_news</a>";
+        }
     }
 }else{
     echo "error<br>";
-    echo "<a href='addnews.php'>back add_type</a>";
+    echo "<a href='addnews.php'>back add_news</a>";
 }
 
 
