@@ -11,15 +11,15 @@
         <div id="logo"><div id="logo_1"><a href="index.php">Books</a></div></div>
         <div id="nav">
             <ul>
-                <li><a href="books/news/book_news.php" target="index">News</a></li>
-                <li><a href="books/life/book_life.php" target="index">Life</a></li>
-                <li><a href="books/book/book_book.php" target="index">Book</a></li>
-                <li><a href="books/photo/book_photo.php" target="index">photo</a></li>
-                <li><a href="books/message/book_message.php" target="index">message</a></li>
+                <li><a href="books/news/book_news.php" target="index">新闻</a></li>
+                <li><a href="books/life/book_life.php" target="index">生活</a></li>
+                <li><a href="books/book/book_book.php" target="index">书本</a></li>
+                <li><a href="books/photo/book_photo.php" target="index">相册</a></li>
+                <li><a href="books/message/book_message.php" target="index">留言</a></li>
             </ul>
         </div>
         <div id="login">
-            <a href="books/login.php" >Admin Login</a>
+            <a href="books/login.php" >管理员登录</a>
         </div>
     </div>
     <div id="content">

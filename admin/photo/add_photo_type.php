@@ -9,10 +9,10 @@
     <a href="add_photo.php">添加照片</a>/
     <a href="add_photo_type.php">创建相册</a>
     <hr>
-    <h1>相册管理</h1>
-    <form action="photo_search.php" method="get">
-        <input type="text" name="val" placeholder="搜索相册">
-        <input type="submit" value="search">
+    <h1>创建相册</h1>
+    <form action="add_type_suc.php" method="post">
+        <input type="text" name="phototype">
+        <input type="submit" value="创建" name="submit">
     </form>
 </div>
 </body>

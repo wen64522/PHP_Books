@@ -17,7 +17,7 @@
         <ul>
             <li><a href="welcome.php" target="onclick">管理首页</a></li>
             <li><a href="news/news.php" target="onclick">新闻管理</a></li>
-            <li><a href="photo/photo.php" target="onclick">照片管理</a></li>
+            <li><a href="photo/photo.php" target="onclick">相册管理</a></li>
             <li><a href="message/message.php" target="onclick">留言管理</a></li>
         </ul>
     </div>
