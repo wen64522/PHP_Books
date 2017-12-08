@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("PRC");
-include ('news_page.php');
+include ('../../books/common/db.php');
 $val=$_GET['val'];
 $sql="select * from book_news WHERE tle LIKE '%$val%'";
 $result=$mysqli->query($sql);

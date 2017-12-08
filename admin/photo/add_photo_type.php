@@ -11,7 +11,7 @@
     <hr>
     <h1>创建相册</h1>
     <form action="add_type_suc.php" method="post">
-        <input type="text" name="phototype">
+        <input type="text" name="phototype" placeholder="相册名称">
         <input type="submit" value="创建" name="submit">
     </form>
 </div>
