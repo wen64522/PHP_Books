@@ -6,9 +6,9 @@
  * Time: 17:03
  */
 include('../common/db.php');
-$pageSize = 4; //每页显示数据条数
+$pageSize = 12; //每页显示数据条数
 
-$result = $mysqli->query("select * from book_news where newstype='news'");
+$result = $mysqli->query("select * from book_phototype ");
 $totalNum = mysqli_num_rows($result); //数据总条数
 if($totalNum%$pageSize){
     $totalPageCount = intval($totalNum/$pageSize)+1; //如果有余数，总页数+1.
