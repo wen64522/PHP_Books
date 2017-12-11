@@ -23,7 +23,7 @@
         </div>
     </div>
     <div id="content">
-        <iframe src="books/message/book_index.php" name="index" width="100%" height="100%" frameborder=0></iframe>
+        <iframe src="books/message/book_index.php" name="index" width="100%" height="100%" frameborder=0 ></iframe>
     </div>
     <div id="foot">
         <p>welcome to my books,thanks!</p>

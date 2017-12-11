@@ -3,6 +3,12 @@ header("Content-Type: text/html; charset=utf-8");
 include ('book_page.php');
 $sql="select * from book_news where newstype='book'order by id desc LIMIT $offset,$pageSize";
 $result=$mysqli->query($sql);
+$sql1="select * from book_news order by id desc LIMIT 0,6";
+$res=$mysqli->query($sql1);
+$sql2="select * from book_message ORDER by id desc limit 0,12";
+$res2=$mysqli->query($sql2);
+$sql3="select * from book_photo ORDER by id desc limit 0,4";
+$res3=$mysqli->query($sql3);
 $num=mysqli_num_rows($result);
 ?>
 <html>
@@ -55,52 +61,41 @@ $num=mysqli_num_rows($result);
     <div class="right">
         <span>新闻推荐</span>
         <ul>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
+            <?php
+            while($arr1=mysqli_fetch_array($res)){
+                $rows1[]=$arr1;
+            }
+            foreach($rows1 as $row1){
+                ?>
+                <li><a href="#"><?php echo $row1['tle']?></a></li>
+            <?php }?>
         </ul>
     </div>
     <div class="right">
         <span>照片分享</span>
         <ul>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
+            <?php
+            while($arr3=mysqli_fetch_array($res3)){
+                $rows3[]=$arr3;
+            }
+            foreach($rows3 as $row3){
+                ?>
+                <li><img style="width: 150px; " src="../../public/uploads/photo/<?php echo $row3['img']?>"></li>
+            <?php }?>
         </ul>
     </div>
     <div class="right">
         <span>最新留言</span>
         <ul>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
-            <li>xxxxxxxxxxxxxx</li>
+            <?php
+            while($arr2=mysqli_fetch_array($res2)){
+                $rows2[]=$arr2;
+            }
+            foreach($rows2 as $row2){
+                ?>
+                <li><a href="#"><?php echo $row2['message']?></a></li>
+            <?php }?>
+        </ul>
         </ul>
     </div>
 </div>
