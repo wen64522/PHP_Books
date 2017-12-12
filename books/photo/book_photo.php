@@ -20,7 +20,7 @@ $mysqli->close();
     foreach($rows as $row){
     ?>
     <div class="img">
-            <img  style="width: 200px ;margin: 5px"  src="../../public/uploads/photo/2b2251ff52c208d901accc845b23640f_t01d51d8a1582f4e79d.jpg">
+            <img  style="width: 200px ;margin: 5px"  src="../../public/uploads/photo/u=220424758,3218730757&fm=27&gp=0.jpg">
             <a href="../show/show_photo.php?phototype=<?php echo $row['phototype']?> " target="_blank"><h2 style="text-align: center;"><?php echo $row['phototype']?></h2></a>
     </div>
     <?php }?>

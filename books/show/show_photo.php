@@ -10,8 +10,7 @@ $mysqli->close();
 <html>
 <head>
     <meta charset="utf-8">
-    <link href="../../public/css/book_photo.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../public/css/newspage.css">
+    <link href="../../public/css/show_photo.css" rel="stylesheet">
 </head>
 <body>
 <div id="main">
@@ -25,8 +24,8 @@ $mysqli->close();
         ?>
         <div class="img">
             <img  style="width: 200px ;margin: 5px"  src="../../public/uploads/photo/<?php echo $row['img']?>">
-            <h2 style="text-align: center;"><?php echo $row['pname']?></h2>
-            <p><?php echo $row['pmess']?></p>
+            照片名称：<h2 style="text-align: center;"><?php echo $row['pname']?></h2>
+            照片描述：<p><?php echo $row['pmess']?></p>
         </div>
     <?php }}?>
 </div>
