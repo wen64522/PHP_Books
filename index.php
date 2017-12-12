@@ -19,7 +19,7 @@
             </ul>
         </div>
         <div id="login">
-            <a href="books/login.php" >管理员登录</a>
+            <a href="books/login.php" target=_blank>管理员登录</a>
         </div>
     </div>
     <div id="content">

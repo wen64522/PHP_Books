@@ -35,7 +35,7 @@ $mysqli->close();
                 <img style="width: 260px;height: 215px" src="../../public/uploads/<?php echo $row['img']?>">
             </div>
             <div id="content">
-                <a href="#"><h3><?php echo mb_substr($row['tle'],'0','28','UTF8')?></h3></a>
+                <a href="../show/show_news.php?id=<?php echo $row['id']?>" target=_blank><h3><?php echo mb_substr($row['tle'],'0','28','UTF8')?></h3></a>
                 <p style="text-indent:2em;"><?php
                     $str=strip_tags($row['nav']);
                     $bf=array(" ","　","\t","\n","\r");
@@ -43,7 +43,7 @@ $mysqli->close();
                     $str=str_replace($bf,$lb,$str);
                     echo mb_substr($str,'0','100','UTF8') ;
                     ?>
-                    <a href="#">[点击详细]</a>
+                    <a href="../show/show_news.php?id=<?php echo $row['id']?>" target=_blank>[点击详细]</a>
                 </p>
             </div>
         </div>
@@ -96,7 +96,6 @@ $mysqli->close();
                 ?>
                 <li><a href="#"><?php echo $row2['message']?></a></li>
             <?php }?>
-        </ul>
         </ul>
     </div>
 </div>

@@ -3,6 +3,7 @@ include ('photo_page.php');
 $sql="select * from book_phototype  LIMIT $offset,$pageSize";
 $result=$mysqli->query($sql);
 $num=mysqli_num_rows($result);
+$mysqli->close();
 ?>
 <!DOCTYPE html>
 <html>

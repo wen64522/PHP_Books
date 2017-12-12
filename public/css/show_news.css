@@ -1,0 +1,25 @@
+#con{
+    width:900px;
+    margin: 6px 0 0 0 ;
+}
+#left{
+    width: 630px ;
+    float: left;
+}
+#right{
+    float: right;
+    width: 260px;
+}
+.right{
+    width: 260px;
+    border: 1px solid;
+    margin: 0 0 6px 0;
+}
+#left ul li{
+    display:inline;
+    margin: 0 60px 0 0;
+    font-size: 18px;
+}
+#text img{
+    max-width:625px;_width:expression(this.width > 625 ? "625px" : this.width);
+}
