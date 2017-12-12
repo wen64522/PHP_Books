@@ -97,7 +97,6 @@ $mysqli->close();
                 <li><a href="#"><?php echo $row2['message']?></a></li>
             <?php }?>
         </ul>
-        </ul>
     </div>
 </div>
 </body>
