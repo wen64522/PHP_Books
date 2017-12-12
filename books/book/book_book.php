@@ -3,7 +3,7 @@ header("Content-Type: text/html; charset=utf-8");
 include ('book_page.php');
 $sql="select * from book_news where newstype='book'order by id desc LIMIT $offset,$pageSize";
 $result=$mysqli->query($sql);
-$sql1="select * from book_news order by id desc LIMIT 0,6";
+$sql1="select * from book_news ORDER BY RAND() LIMIT 6";
 $res=$mysqli->query($sql1);
 $sql2="select * from book_message ORDER by id desc limit 0,12";
 $res2=$mysqli->query($sql2);
