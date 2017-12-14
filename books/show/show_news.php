@@ -40,12 +40,12 @@ $mysqli->close();
     <div id="content">
         <div id="con">
             <div id="left">
-                <?php $arr=mysqli_fetch_array($result);$t=date('Y-m-d H:i:s',$arr['time']);?>
+                <?php $arr=mysqli_fetch_array($result);$t=date('Y/m/d',$arr['time']);?>
                 <h1 style="text-align: center"><?php echo $arr['tle']?></h1>
                 <ul>
-                    <li>name:<?php echo $arr['user']?></li>
-                    <li>type:<?php echo $arr['newstype']?></li>
-                    <li>data:<?php echo $t?></li>
+                    <li>新闻管理:<?php echo $arr['user']?></li>
+                    <li>新闻类型:<?php echo $arr['newstype']?></li>
+                    <li>发表时间:<?php echo $t?></li>
                 </ul>
                 <div id="text">
                     <?php echo $arr['nav']?>

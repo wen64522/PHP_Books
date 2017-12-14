@@ -19,7 +19,7 @@ $num=mysqli_num_rows($result);
             <input id="name" name="user" type="text" ><br>
             <label for="mess">You must want to say something,Please input your message,thanks!!! </label><br>
             <textarea id="mess" name="message" ></textarea><br>
-            <input id="send" type="submit" value="sand" >
+            <input id="send" type="submit" value="留言" >
         </form>
     </div>
     <div id="content">

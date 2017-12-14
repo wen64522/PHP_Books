@@ -7,12 +7,13 @@ session_start();
  * Time: 14:41
  */
 include('../books/common/db.php');
-if(isset($_POST["submit"]) && $_POST["submit"] == "login") {
+if(isset($_POST["submit"]) && $_POST["submit"] == "登录") {
     $user=$_POST['admin'];
     $pass=$_POST['password'];
-    if($user=="" or $pass=="" ){
-        echo "error!!!user or password must"."<br><a href='../books/login.php'>back login</a>";
-    }else{
+    $code=$_POST['authcode'];
+    if($user=="" or $pass=="" or  $code=="" ){
+        echo "错误！！！姓名或密码或验证码不能为空，请检查。"."<br><a href='../books/login.php'>back login</a>";
+    }else if( $code==$_SESSION['authcode']){
         $sql="select admin,password from book_admin where admin='$user' and password='$pass'";
         $result=$mysqli->query($sql);
         $num=mysqli_num_rows($result);
@@ -20,10 +21,11 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "login") {
             $_SESSION["user"]=$_POST['admin'];
             header('location:admin.php');
         }else{
-            echo "user or password error!!!"."<br><a href='../books/login.php'>back login</a>";
+            echo "用户名或密码错误，请检查!!!"."<br><a href='../books/login.php'>back login</a>";
         }
+    }else {
+        echo "验证码有误，请检查！！！"."<br><a href='../books/login.php'>back login</a>";
     }
-
 }else{
     echo "submit error!!"."<br><a href='../books/login.php'>back login</a>";
 }
