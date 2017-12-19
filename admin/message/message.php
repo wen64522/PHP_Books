@@ -1,5 +1,8 @@
 <?php
 date_default_timezone_set("PRC");
+header("Content-Type: text/html; charset=utf-8");
+session_start();
+if(isset($_SESSION['user'])){
 include ('message_page.php');
 $sql = "select * from book_message order by id desc limit $offset,$pageSize";
 $result = $mysqli->query($sql);
@@ -67,3 +70,7 @@ $num=mysqli_num_rows($result);
 </div>
 </body>
 </html>
+    <?php
+}else{echo 'sorry,你还没有登录';
+}
+?>

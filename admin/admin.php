@@ -1,3 +1,8 @@
+<?php
+header("Content-Type: text/html; charset=utf-8");
+session_start();
+if(isset($_SESSION['user'])){
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -27,3 +32,8 @@
 </div>
 </body>
 </html>
+<?php
+}else{
+    echo 'sorry,你还没有登录';
+}
+?>
