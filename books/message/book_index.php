@@ -61,16 +61,16 @@ $mysqli->close();
     </div>
     <div class="right">
         <span>新闻推荐</span>
-        <ul>
-            <?php
-            while($arr1=mysqli_fetch_array($res)){
-                $rows1[]=$arr1;
-            }
-            foreach($rows1 as $row1){
-                ?>
-                <li><a href="../show/show_news.php?id=<?php echo $row1['id']?>" target=_blank><?php echo $row1['tle']?></a></li>
-            <?php }?>
-        </ul>
+            <ul>
+                <?php
+                while($arr1=mysqli_fetch_array($res)){
+                    $rows1[]=$arr1;
+                }
+                foreach($rows1 as $row1){
+                    ?>
+                    <li><a href="../show/show_news.php?id=<?php echo $row1['id']?>" target=_blank><?php echo $row1['tle']?></a></li>
+                <?php }?>
+            </ul>
     </div>
     <div class="right">
         <span>照片分享</span>
@@ -81,7 +81,7 @@ $mysqli->close();
             }
             foreach($rows3 as $row3){
                 ?>
-                <li><img style="width: 150px; " src="../../public/uploads/photo/<?php echo $row3['img']?>"></li>
+                <li><img style="width: 140px; " src="../../public/uploads/photo/<?php echo $row3['img']?>"></li>
             <?php }?>
         </ul>
     </div>

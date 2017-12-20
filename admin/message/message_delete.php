@@ -8,12 +8,10 @@
 header("Content-Type: text/html; charset=utf-8");
 session_start();
 if(isset($_SESSION['user'])) {
-    include('../../books/common/db.php');
+    include('../../include.php');
     $id = $_GET['id'];
-    $sql = "DELETE FROM book_message WHERE id='$id'";
-    $result = $mysqli->query($sql);
-    if (isset($result)) {
-        $mysqli->close();
+    $result=delete("book_message","id=$id");
+    if ($result) {
         header("location:message.php");
     } else {
         echo "no error!!";

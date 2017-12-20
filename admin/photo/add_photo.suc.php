@@ -5,12 +5,9 @@
  * Date: 2017/12/7
  * Time: 15:19
  */
-session_start();
-include ('../../books/common/db.php');
+include ('../../include.php');
 if(isset($_POST['submit'])){
     $pname=$_POST['pname'];
-    $ptype=$_POST['phototype'];
-    $user=$_SESSION['user'];
     $pmess=$_POST['pmess'];
     $t=time();
     $imgurl=$_POST['photos'];
@@ -20,23 +17,20 @@ if(isset($_POST['submit'])){
     }else{
         if($imgurl) {
             foreach ($imgurl as $val) {
-                if ($val!= "") {
-                    $sql="INSERT INTO book_photo(pname,pmess,user,time,phototype,img) VALUE ('$pname','$pmess','$user','$t','$ptype','$val')";
-                    $result=$mysqli->query($sql);
-                    if(!$result){
-                        echo "添加错误！！！<br>";
-                        echo "<a href='add_photo.php'>back add_photo</a>";
-                    }else{
-                        echo "添加成功！！！<br>";
-                        echo "<a href='add_photo.php'>back add_photo</a><br>";
-                    }
-                }else{
-                    echo "添加错误！！！<br>";
-                    echo "<a href='add_photo.php'>back add_photo</a>";
-                }
+                $array = [
+                    'pname' => $_POST['pname'],
+                    'pmess' => $_POST['pmess'],
+                    'user' => $_SESSION['user'],
+                    'time' => $t,
+                    'phototype' => $_POST['phototype'],
+                    'img' => $val
+                ];
+                $result = insert("book_photo", $array);
             }
+                echo "添加成功！！！<br>";
+                echo "<a href='add_photo.php'>back add_photo</a><br>";
+           }
         }
-    }
 }else{
     echo "error<br>";
     echo "<a href='add_photo.php'>back add_photo</a>";

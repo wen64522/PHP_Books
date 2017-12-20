@@ -5,12 +5,10 @@
  * Date: 2017/12/5
  * Time: 11:15
  */
-include('../../books/common/db.php');
+include('../../include.php');
 $id=$_GET['id'];
-$sql="DELETE FROM book_news WHERE id='$id'";
-$result=$mysqli->query($sql);
-if(isset($result)){
-    $mysqli->close();
+$result=delete("book_news","id=$id");
+if($result){
     header("location:news.php");
 }else{
     echo "no error!!";
