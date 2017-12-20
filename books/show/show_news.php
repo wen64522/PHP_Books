@@ -1,16 +1,10 @@
 <?php
-date_default_timezone_set("PRC");
-include ('../../books/common/db.php');
+include ('../../include.php');
 $id=$_GET['id'];
 $sql="select * from book_news WHERE id='$id'";
-$result=$mysqli->query($sql);
 $sql1="select * from book_news ORDER BY RAND() LIMIT 6";
-$res=$mysqli->query($sql1);
 $sql2="select * from book_message ORDER by id desc limit 0,12";
-$res2=$mysqli->query($sql2);
 $sql3="select * from book_photo ORDER by id desc limit 0,4";
-$res3=$mysqli->query($sql3);
-$mysqli->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +34,7 @@ $mysqli->close();
     <div id="content">
         <div id="con">
             <div id="left">
-                <?php $arr=mysqli_fetch_array($result);$t=date('Y/m/d',$arr['time']);?>
+                <?php $arr=getOneResult($sql);$t=date('Y/m/d',$arr['time']);?>
                 <h1 style="text-align: center"><?php echo $arr['tle']?></h1>
                 <ul>
                     <li>新闻管理:<?php echo $arr['user']?></li>
@@ -56,9 +50,7 @@ $mysqli->close();
                     <span>新闻推荐</span>
                     <ul>
                         <?php
-                        while($arr1=mysqli_fetch_array($res)){
-                            $rows1[]=$arr1;
-                        }
+                        $rows1=getAllResult($sql1);
                         foreach($rows1 as $row1){
                             ?>
                             <li><a href="../show/show_news.php?id=<?php echo $row1['id']?>" target=_blank><?php echo $row1['tle']?></a></li>
@@ -69,9 +61,7 @@ $mysqli->close();
                     <span>照片分享</span>
                     <ul>
                         <?php
-                        while($arr3=mysqli_fetch_array($res3)){
-                            $rows3[]=$arr3;
-                        }
+                       $rows3=getAllResult($sql3);
                         foreach($rows3 as $row3){
                             ?>
                             <li><img style="width: 150px; " src="../../public/uploads/photo/<?php echo $row3['img']?>"></li>
@@ -82,9 +72,7 @@ $mysqli->close();
                     <span>最新留言</span>
                     <ul>
                         <?php
-                        while($arr2=mysqli_fetch_array($res2)){
-                            $rows2[]=$arr2;
-                        }
+                        $rows2=getAllResult($sql2);
                         foreach($rows2 as $row2){
                             ?>
                             <li><a href="#"><?php echo $row2['message']?></a></li>

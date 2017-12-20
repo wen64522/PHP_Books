@@ -55,15 +55,36 @@ function delete($table,$where=null){
         return false;
     }
 }
-//得到数据所有结果集
-function getAllResult(){
-
+//得到数据表所有结果集
+function getAllResult($sql, $result_type=MYSQLI_ASSOC){
+    global $link;
+    $result=mysqli_query($link,$sql);
+    if($result && mysqli_num_rows($result)>0){
+        while($arr=mysqli_fetch_array($result,$result_type)){
+                $rows[]=$arr;
+        }
+        return $rows;
+    }else{
+        return false;
+    }
 }
-//得到一条数据记录
-function getOneResult(){
-
+//得到一条数据结果集
+function getOneResult($sql,$result_type=MYSQLI_ASSOC){
+    global $link;
+    $result=mysqli_query($link,$sql);
+    if($result && mysqli_num_rows($result)>0){
+        return mysqli_fetch_array($result,$result_type);
+    }else{
+        return false;
+    }
 }
-//得到结果集的记录条数
-function getNumResult(){
-
+//得到结果集的记录的条数
+function getNumResult($sql){
+    global $link;
+    $result=mysqli_query($link,$sql);
+    if($result){
+        return mysqli_num_rows($result);
+    }else{
+        return false;
+    }
 }
