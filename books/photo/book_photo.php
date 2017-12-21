@@ -1,9 +1,8 @@
 <?php
-include ('photo_page.php');
-$sql="select * from book_phototype  LIMIT $offset,$pageSize";
-$result=$mysqli->query($sql);
-$num=mysqli_num_rows($result);
-$mysqli->close();
+include ('../../include.php');
+$cunt=backNum("book_phototype");
+$page=new Page($cunt,12);
+$sql="select * from book_phototype $page->limit";
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,8 +14,7 @@ $mysqli->close();
 <body>
 <div id="main">
     <?php
-    while($arr=mysqli_fetch_array($result)){
-    $rows[]=$arr;}
+    $rows=getAllResult($sql);
     foreach($rows as $row){
     ?>
     <div class="img">
@@ -25,13 +23,7 @@ $mysqli->close();
     </div>
     <?php }?>
     <?php
-    echo "<div id='type'>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">最前 </a>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 上一页</a>";
-    echo "|";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> 最后 </a>";
-    echo "</div>";
+    echo $page->fpage();
     ?>
 </div>
 </body>

@@ -1,17 +1,12 @@
 <?php
-date_default_timezone_set("PRC");
-header("Content-Type: text/html; charset=utf-8");
-session_start();
-if(isset($_SESSION['user'])){
-include ('message_page.php');
-$sql = "select * from book_message order by id desc limit $offset,$pageSize";
-$result = $mysqli->query($sql);
-$num=mysqli_num_rows($result);
+include ('../../include.php');
+    $cunt=backNum("book_message");
+    $page = new Page($cunt,10);
+    $sql= "select * from book_message order by id desc $page->limit";
 ?>
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../public/css/admin1.css">
 </head>
 <body>
 <div>
@@ -29,17 +24,8 @@ $num=mysqli_num_rows($result);
             <th>date</th>
             <th>operation</th>
         </tr>
-        <?php
-        if($num==0){
-            ?>
-                <p>sorry, no message.</p>
             <?php
-        }else {
-            ?>
-            <?php
-            while ($arr = mysqli_fetch_array($result)) {
-                $rows[] = $arr;
-            }
+            $rows=getAllResult($sql);
             foreach ($rows as $row) {
                 $t = date("Y/m/d H:i:s", $row['time']);
                 ?>
@@ -53,24 +39,11 @@ $num=mysqli_num_rows($result);
                 <?php
             }
             ?>
-            <?php
-        }
-        ?>
     </table>
         <?php
-        echo "<div id='type'>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">最前 </a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 上一页</a>";
-        echo "|";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> 最后 </a>";
-        echo "</div>";
+        echo $page->fpage();
         ?>
     </div>
 </div>
 </body>
 </html>
-    <?php
-}else{echo 'sorry,你还没有登录';
-}
-?>

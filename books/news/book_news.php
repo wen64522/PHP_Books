@@ -1,9 +1,8 @@
 <?PHP
 include ('../../include.php');
-include ('news_page.php');
-$sql="select * from book_news where newstype='news'order by id desc LIMIT $offset,$pageSize";
-$result=$mysqli->query($sql);
-$num=mysqli_num_rows($result);
+$cunt=select("book_news","newstype='news'");
+$page=new Page($cunt,4);
+$sql="select * from book_news where newstype='news'order by id desc $page->limit";
 $sql1="select * from book_news ORDER BY RAND() LIMIT 6";
 $sql2="select * from book_message ORDER by id desc limit 0,12";
 $sql3="select * from book_photo ORDER by id desc limit 0,4";
@@ -17,14 +16,12 @@ $sql3="select * from book_photo ORDER by id desc limit 0,4";
 <body>
 <div id="main">
     <div id="left">
-        <?php if($num==0){?>
+        <?php if($cunt==0){?>
             <div class="nav">
               <p><?php  echo "暂无数据";?></p>
             </div>
         <?php }else{
-            while($arr=mysqli_fetch_array($result)){
-                $rows[]=$arr;
-            }
+            $rows=getAllResult($sql);
             foreach($rows as $row){?>
         <div class="nav">
             <div id="img">
@@ -46,13 +43,7 @@ $sql3="select * from book_photo ORDER by id desc limit 0,4";
         <?php }?>
         <?php }?>
         <?php
-        echo "<div id='type'>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">最前 </a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 上一页</a>";
-        echo "|";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
-        echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> 最后 </a>";
-        echo "</div>";
+        echo $page->fpage();
         ?>
     </div>
     <div class="right">

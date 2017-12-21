@@ -55,6 +55,18 @@ function delete($table,$where=null){
         return false;
     }
 }
+//按条件查询并返回记录总数
+function select($table,$where=null){
+    global $link;
+    $where=$where==null?null:' where '.$where;
+    $sql="select * from {$table}{$where}";
+    $result=mysqli_query($link,$sql);
+    if($result){
+        return mysqli_num_rows($result);
+    }else{
+        return false;
+    }
+}
 //得到数据表所有结果集
 function getAllResult($sql, $result_type=MYSQLI_ASSOC){
     global $link;
@@ -74,6 +86,17 @@ function getOneResult($sql,$result_type=MYSQLI_ASSOC){
     $result=mysqli_query($link,$sql);
     if($result && mysqli_num_rows($result)>0){
         return mysqli_fetch_array($result,$result_type);
+    }else{
+        return false;
+    }
+}
+//返回某个记录表的条数
+function backNum($table){
+    global $link;
+    $sql="select * from {$table}";
+    $result=mysqli_query($link,$sql);
+    if($result){
+        return mysqli_num_rows($result);
     }else{
         return false;
     }

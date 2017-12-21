@@ -1,16 +1,14 @@
 <?php
-date_default_timezone_set("PRC");
-include ('photo_page.php');
-$sql="select * from book_photo order by id desc limit $offset,$pageSize";
-$result=$mysqli->query($sql);
-$num=mysqli_num_rows($result);
+include ('../../include.php');
+$cunt=backNum("book_photo");
+$page=new Page($cunt,10);
+$sql="select * from book_photo order by id desc $page->limit";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../public/css/news_add.css">
-    <link rel="stylesheet" type="text/css" href="../../public/css/admin1.css">
 <body>
 <div id="main">
     <a href="photo.php">相册管理</a>/
@@ -37,14 +35,8 @@ $num=mysqli_num_rows($result);
             <th>操作用户</th>
             <th>相册管理</th>
         </tr>
-        <?php
-        if($num==0){
-            echo "no data!!!";
-        }else{
-            while($arr=mysqli_fetch_array($result)){
-                $rows[]=$arr;}
-            ?>
             <?php
+            $rows=getAllResult($sql);
             foreach($rows as $row){
                 $t=date('Y/m/d H:i:s',$row['time']);
                 if($row['uptime']==""){
@@ -68,19 +60,11 @@ $num=mysqli_num_rows($result);
                     </td>
                 </tr>
                 <?php
-            } ?>
-            <?php
-        }
-        ?>
+            }
+            ?>
     </table>
     <?php
-    echo "<div id='type'>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=1\">最前 </a>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$prev."\"> 上一页</a>";
-    echo "|";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$next."\">下一页</a>";
-    echo "<a href=\"".$_SERVER['PHP_SELF']."?page=".$totalPageCount."\"> 最后 </a>";
-    echo "</div>";
+    echo $page->fpage();
     ?>
 </div>
 </body>

@@ -12,7 +12,7 @@ echo "Hey!!!@"."<h style=\"color: #ff0f01\">".$_SESSION['user']."</h>".",welcome
 <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
     <tr>
         <th>操作系统</th>
-        <td><?php echo PHP_OS;?></td>
+        <td><?php echo php_uname();?></td>
     </tr>
     <tr>
         <th>Apache版本</th>
