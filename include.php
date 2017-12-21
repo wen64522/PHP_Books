@@ -15,4 +15,5 @@ require_once 'page.func.php';
 require_once 'config.php';
 require_once 'admin.func.php';
 require_once 'common.func.php';
+require_once 'image.func.php';
 content();

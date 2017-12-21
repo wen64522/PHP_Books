@@ -19,13 +19,13 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "登录") {
             $_SESSION["user"]=$_POST['admin'];
             header('location:admin.php');
         }else{
-            echo "用户名或密码错误，请检查!!!"."<br><a href='../books/login.php'>back login</a>";
+            echo "用户名或密码错误，请检查!!!"."<br><a href='../home/login.php'>back login</a>";
         }
     }else {
-        echo "验证码有误，请检查！！！"."<br><a href='../books/login.php'>back login</a>";
+        echo "验证码有误，请检查！！！"."<br><a href='../home/login.php'>back login</a>";
     }
 }else{
-    echo "submit error!!"."<br><a href='../books/login.php'>back login</a>";
+    echo "submit error!!"."<br><a href='../home/login.php'>back login</a>";
 }
 
 
