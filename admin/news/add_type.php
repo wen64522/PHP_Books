@@ -6,6 +6,7 @@
  * Time: 15:47
  */
 include ('../../include.php');
+checkLogin();
 if(isset($_POST['submit'])){
     $null=$_POST['newstype'];
     if(!$null==""){

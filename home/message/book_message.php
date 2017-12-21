@@ -14,11 +14,11 @@ $sql = "select * from book_message order by id desc $page->limit";
 <div id="main">
     <div id="message">
         <form id="form" method="post" action="insert.php">
-            <label for="name">Your name:</label> <br>
+            <label for="name">昵称:</label> <br>
             <input id="name" name="user" type="text" ><br>
-            <label for="mess">You must want to say something,Please input your message,thanks!!! </label><br>
+            <label for="mess">评论区: </label><br>
             <textarea id="mess" name="message" ></textarea><br>
-            <input id="send" type="submit" value="留言" >
+            <input id="send" type="submit" value="评论" >
         </form>
     </div>
     <div id="content">
@@ -37,7 +37,7 @@ $sql = "select * from book_message order by id desc $page->limit";
                 $t = date("Y/m/d H:i:s", $row['time']);
                 ?>
                 <div class="con_class">
-                    <p><?php echo "@" . $row['user'] ?> said:</p>
+                    <p><?php echo "@" . $row['user'] ?> 说:</p>
                     <p><?php echo $row['message'] ?></p>
                     <p>Date:<?php echo $t ?></p>
                 </div>

@@ -6,6 +6,7 @@
  * Time: 15:38
  */
 include('../../include.php');
+checkLogin();
 $id=$_GET['id'];
 $result=delete("book_photo","id=$id");
 if($result){

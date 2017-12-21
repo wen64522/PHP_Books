@@ -1,5 +1,6 @@
 <?php
 include('../../include.php');
+checkLogin();
 $sql="select * from book_phototype";
 $rows=getAllResult($sql);
 ?>

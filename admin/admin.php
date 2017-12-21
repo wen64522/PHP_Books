@@ -1,6 +1,6 @@
 <?php
 include ('../include.php');
-if(isset($_SESSION['user'])){
+checkLogin();
 ?>
 <html>
     <head>
@@ -31,8 +31,3 @@ if(isset($_SESSION['user'])){
 </div>
 </body>
 </html>
-<?php
-}else{
-    echo 'sorry,你还没有登录';
-}
-?>

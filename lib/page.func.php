@@ -90,17 +90,17 @@
             $arr = func_get_args();
 
             $html[0] = "<span class='p1'>&nbsp;共<b> {$this->total} </b>{$this->config["head"]}&nbsp;</span>";
-            $html[1] = "&nbsp;本页 <b>".$this->disnum()."</b> 条&nbsp;";
-            $html[2] = "&nbsp;本页从 <b>{$this->start()}-{$this->end()}</b> 条&nbsp;";
-            $html[3] = "&nbsp;<b>{$this->page}/{$this->pageNum}</b>页&nbsp;";
-            $html[4] = $this->firstprev();
-            $html[5] = $this->pageList();
-            $html[6] = $this->nextlast();
-            $html[7] = $this->goPage();
+//            $html[1] = "&nbsp;本页 <b>".$this->disnum()."</b> 条&nbsp;";
+//            $html[2] = "&nbsp;本页从 <b>{$this->start()}-{$this->end()}</b> 条&nbsp;";
+//            $html[3] = "&nbsp;<b>{$this->page}/{$this->pageNum}</b>页&nbsp;";
+            $html[1] = $this->firstprev();
+            $html[2] = $this->pageList();
+            $html[3] = $this->nextlast();
+            $html[4] = $this->goPage();
 
             $fpage = '<div style="font:16px \'\5B8B\4F53\',san-serif;">';
             if(count($arr) < 1)
-                $arr = array(0, 1,2,3,4,5,6,7);
+                $arr = array(0, 1,2,3,4);
 
             for($i = 0; $i < count($arr); $i++)
                 $fpage .= $html[$arr[$i]];

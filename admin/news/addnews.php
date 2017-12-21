@@ -1,5 +1,6 @@
 <?php
 include('../../include.php');
+checkLogin();
 $sql="select * from book_type ORDER by id desc";
 $rows=getAllResult($sql);
 ?>

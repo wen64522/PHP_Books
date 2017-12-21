@@ -6,6 +6,7 @@
  * Time: 10:23
  */
 include('../../include.php');
+checkLogin();
 $val=$_GET['val'];
 $sql="select * from book_message WHERE user LIKE '%$val%'";
 $num=getNumResult($sql);

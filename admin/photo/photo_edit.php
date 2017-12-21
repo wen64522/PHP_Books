@@ -1,5 +1,6 @@
 <?php
 include('../../include.php');
+checkLogin();
 $id=$_GET['id'];
 $sql="select * from book_photo where id='$id'";
 ?>

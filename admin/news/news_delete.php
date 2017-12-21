@@ -6,6 +6,7 @@
  * Time: 11:15
  */
 include('../../include.php');
+checkLogin();
 $id=$_GET['id'];
 $result=delete("book_news","id=$id");
 if($result){

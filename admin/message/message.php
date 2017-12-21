@@ -1,8 +1,9 @@
 <?php
 include ('../../include.php');
-    $cunt=backNum("book_message");
-    $page = new Page($cunt,10);
-    $sql= "select * from book_message order by id desc $page->limit";
+checkLogin();
+$cunt=backNum("book_message");
+$page = new Page($cunt,10);
+$sql= "select * from book_message order by id desc $page->limit";
 ?>
 <html>
 <head>

@@ -14,7 +14,7 @@ $num=select("book_photo","phototype='$type'");
 <div id="main">
     <?php
     if($num==0){
-        echo 'no data';
+        echo '暂无数据！！！';
     }else{
         $rows=getAllResult($sql);
     foreach($rows as $row){

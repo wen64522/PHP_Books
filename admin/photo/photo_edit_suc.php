@@ -6,6 +6,7 @@
  * Time: 16:47
  */
 include('../../include.php');
+checkLogin();
 if(isset($_POST['submit'])){
     $id=$_GET['id'];
     $pname=$_POST['pname'];

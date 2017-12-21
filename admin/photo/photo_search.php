@@ -1,5 +1,6 @@
 <?php
 include('../../include.php');
+checkLogin();
 $val=$_GET['val'];
 $sql="select * from book_photo WHERE phototype LIKE '%$val%'";
 $num=getNumResult($sql);

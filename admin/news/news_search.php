@@ -1,5 +1,6 @@
 <?php
 include('../../include.php');
+checkLogin();
 $val=$_GET['val'];
 $sql="select * from book_news WHERE tle LIKE '%$val%'";
 $num=getNumResult($sql);

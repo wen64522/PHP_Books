@@ -6,6 +6,7 @@
  * Time: 9:57
  */
 include('../../include.php');
+checkLogin();
 if(isset($_SESSION['user'])) {
     $id = $_GET['id'];
     $result=delete("book_message","id=$id");

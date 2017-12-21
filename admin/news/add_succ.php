@@ -6,6 +6,7 @@
  * Time: 11:45
  */
 include ('../../include.php');
+checkLogin();
 if(isset($_POST['submit'])){
     $title=$_POST['tle'];
     $content=$_POST['nav'];

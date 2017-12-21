@@ -6,6 +6,7 @@
  * Time: 10:05
  */
 include ('../../include.php');
+checkLogin();
 if(isset($_POST['submit'])){
     $type=$_POST['phototype'];
     if($type!==""){

@@ -1,5 +1,6 @@
 <?php
-session_start();
+include ('../include.php');
+checkLogin();
 /**
  * Created by PhpStorm.
  * User: wen

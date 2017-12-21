@@ -1,5 +1,6 @@
 <?php
 include ('../../include.php');
+checkLogin();
 $cunt=backNum("book_photo");
 $page=new Page($cunt,10);
 $sql="select * from book_photo order by id desc $page->limit";
