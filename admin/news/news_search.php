@@ -1,10 +1,8 @@
 <?php
-date_default_timezone_set("PRC");
-include ('../../books/common/db.php');
+include('../../include.php');
 $val=$_GET['val'];
 $sql="select * from book_news WHERE tle LIKE '%$val%'";
-$result=$mysqli->query($sql);
-$num=mysqli_num_rows($result);
+$num=getNumResult($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,12 +40,9 @@ $num=mysqli_num_rows($result);
         </tr>
         <?php
         if($num==0){
-            echo "no data!!!";
+            echo "暂无数据!!!";
         }else{
-            while($arr=mysqli_fetch_array($result)){
-                $rows[]=$arr;}
-            ?>
-            <?php
+            $rows=getAllResult($sql);
             foreach($rows as $row){
                 $t=date('Y/m/d H:i:s',$row['time']);
                 if($row['uptime']==""){

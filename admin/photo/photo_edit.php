@@ -1,8 +1,7 @@
 <?php
-include ('../../books/common/db.php');
+include('../../include.php');
 $id=$_GET['id'];
 $sql="select * from book_photo where id='$id'";
-$result=$mysqli->query($sql);
 ?>
 <html>
 <head>
@@ -18,7 +17,7 @@ $result=$mysqli->query($sql);
     <h1>编辑照片</h1>
     <div id="photo">
         <?php
-        while($row=mysqli_fetch_array($result)){
+        $row=getOneResult($sql);
         ?>
         <form method="post" action="photo_edit_suc.php?id=<?php echo $row['id']?>">
             <label for="p_name">照片名称:</label>
@@ -38,10 +37,6 @@ $result=$mysqli->query($sql);
             <textarea style="width: 300px;height: 150px" id="p_mess" name="pmess"><?php echo $row['pmess'] ?></textarea><br> <br>
             <input type="submit" value="完成" name="submit" >
         </form>
-            <?php
-            $mysqli->close();
-        }
-        ?>
     </div>
 </div>
 </body>

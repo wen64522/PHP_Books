@@ -1,11 +1,7 @@
 <?php
-include ('../../books/common/db.php');
+include('../../include.php');
 $sql="select * from book_type ORDER by id desc";
-$result=$mysqli->query($sql);
-while($row=mysqli_fetch_array($result)){
-    $rows[]=$row;
-}
-$mysqli->close();
+$rows=getAllResult($sql);
 ?>
 <!DOCTYPE html>
 <html>

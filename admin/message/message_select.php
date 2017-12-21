@@ -5,11 +5,10 @@
  * Date: 2017/12/1
  * Time: 10:23
  */
-date_default_timezone_set("PRC");
-include('../../books/common/db.php');
+include('../../include.php');
 $val=$_GET['val'];
 $sql="select * from book_message WHERE user LIKE '%$val%'";
-$result=$mysqli->query($sql);
+$num=getNumResult($sql);
 ?>
 <html>
 <head>
@@ -17,10 +16,8 @@ $result=$mysqli->query($sql);
 </head>
 <body>
 <?php
-if(mysqli_num_rows($result)){
-    while($arr=mysqli_fetch_array($result)){
-        $rows[]=$arr;
-    }
+if($num){
+    $rows=getAllResult($sql);
 ?>
     <h1>留言搜索结果</h1>
     <form action="message_select.php" method="get">

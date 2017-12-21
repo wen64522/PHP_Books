@@ -1,10 +1,8 @@
 <?php
-include ('../../books/common/db.php');
+include('../../include.php');
 $type=$_GET['phototype'];
 $sql="select * from book_photo  WHERE phototype='$type'";
-$result=$mysqli->query($sql);
-$num=mysqli_num_rows($result);
-$mysqli->close();
+$num=select("book_photo","phototype='$type'");
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,8 +16,7 @@ $mysqli->close();
     if($num==0){
         echo 'no data';
     }else{
-    while($arr=mysqli_fetch_array($result)){
-        $rows[]=$arr;}
+        $rows=getAllResult($sql);
     foreach($rows as $row){
         ?>
         <div class="img">

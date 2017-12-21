@@ -6,7 +6,7 @@ session_start();
  * Date: 2017/11/29
  * Time: 14:41
  */
-include('../books/common/db.php');
+include('../include.php');
 if(isset($_POST["submit"]) && $_POST["submit"] == "登录") {
     $user=$_POST['admin'];
     $pass=$_POST['password'];
@@ -15,8 +15,7 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "登录") {
         echo "错误！！！姓名或密码或验证码不能为空，请检查。"."<br><a href='../books/login.php'>back login</a>";
     }else if( $code==$_SESSION['authcode']){
         $sql="select admin,password from book_admin where admin='$user' and password='$pass'";
-        $result=$mysqli->query($sql);
-        $num=mysqli_num_rows($result);
+        $num=getNumResult($sql);
         if($num){
             $_SESSION["user"]=$_POST['admin'];
             header('location:admin.php');

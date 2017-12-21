@@ -1,8 +1,7 @@
 <?php
-include ('../../books/common/db.php');
+include('../../include.php');
 $id=$_GET['id'];
 $sql="select * from book_news where id='$id'";
-$result=$mysqli->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,13 +16,13 @@ $result=$mysqli->query($sql);
 </head>
 <body>
 <div id="main">
-    <a href="news.php">news</a>/
-    <a href="addnews.php">add_news</a>/
-    <a href="addtype.php">add_type</a>
+    <a href="news.php">新闻管理</a>/
+    <a href="addnews.php">新闻添加</a>/
+    <a href="addtype.php">新闻类别</a>
     <hr>
-    <h1>更改新闻</h1>
+    <h1>编辑新闻</h1>
     <?php
-    while($row=mysqli_fetch_array($result)){
+    $row=getOneResult($sql)
     ?>
     <form method="post" action="news_update.php?id=<?php echo $row['id']?>" >
         <label for="title">标题：</label>
@@ -42,9 +41,6 @@ $result=$mysqli->query($sql);
         </textarea><br>
         <input type="submit" name="submit" value="提交">
     </form>
-    <?php
-    }
-    ?>
 </div>
 <script type="text/javascript">
     //        var editor = new UE.ui.Editor();
